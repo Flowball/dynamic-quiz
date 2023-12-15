@@ -32,9 +32,9 @@ for (const item of optionSpans) {
     const questionData = data.find(q => q.question === questionText);
 
     if (questionData && selectedOptionId === questionData.options[questionData.correctAnswer]) {
-      e.target.style.backgroundColor = 'green'; // Highlight in green if correct
+      e.target.style.backgroundColor = 'rgba(0, 128, 0, 0.576)'; // Highlight in green if correct
     } else {
-      e.target.style.backgroundColor = 'red'; // Optionally, highlight in red if incorrect
+      e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.381)'; // Optionally, highlight in red if incorrect
     }
   });
 }
