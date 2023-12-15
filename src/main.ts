@@ -23,11 +23,19 @@ for (const q of data){
   questionDiv.append(optionDiv)
   app?.append(questionDiv.cloneNode(true))
 }
-const optionSpan = document.getElementsByClassName("optionSpan");
+const optionSpans = document.getElementsByClassName("optionSpan");
 
-for (const items of optionSpan){
-  items.addEventListener("click",(e)=>{
-    console.log(e.target.id)
-  })
+for (const item of optionSpans) {
+  item.addEventListener("click", (e) => {
+    const selectedOptionId = e.target.id;
+    const questionText = e.target.closest(".questionDiv").querySelector(".questionSpan").textContent;
+    const questionData = data.find(q => q.question === questionText);
+
+    if (questionData && selectedOptionId === questionData.options[questionData.correctAnswer]) {
+      e.target.style.backgroundColor = 'green'; // Highlight in green if correct
+    } else {
+      e.target.style.backgroundColor = 'red'; // Optionally, highlight in red if incorrect
+    }
+  });
 }
 }
